@@ -1,0 +1,15 @@
+before '/s/*' do
+	authenticate!
+end
+
+post '/s/lock' do
+	system 'xdg-screensaver reset'
+	system 'xdg-screensaver lock'
+	system 'xset dpms force off'
+	"OK\n"
+end
+
+post '/s/mute' do
+	system 'amixer -q set Master mute'
+	"OK\n"
+end
