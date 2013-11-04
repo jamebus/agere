@@ -2,6 +2,10 @@ before '/s/*' do
 	authenticate!
 end
 
+before '/h/*' do
+	authenticate!
+end
+
 post '/s/lock' do
 	system 'xdg-screensaver reset'
 	system 'xdg-screensaver lock'
@@ -12,4 +16,24 @@ end
 post '/s/mute' do
 	system 'amixer -q set Master mute'
 	"OK\n"
+end
+
+post '/g/party-checkin' do
+	# ...
+end
+
+post '/g/kids-home' do
+	# ...
+end
+
+post '/h/lights-off' do
+	# ...
+end
+
+post '/h/lights-on' do
+	# ...
+end
+
+get '/h/temperature' do
+	# ...
 end
